@@ -7,9 +7,11 @@
 class BaseGuiScreen
 {
 public:
-	BaseGuiScreen(const Ogre::String name);
+	explicit BaseGuiScreen(const Ogre::String name);
 
 	virtual ~BaseGuiScreen();
+
+	virtual bool update(float interval_time);
 
 	void show();
 

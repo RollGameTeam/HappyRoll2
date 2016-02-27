@@ -9,7 +9,12 @@ class GamingGui : public BaseGuiScreen
 public:
 	GamingGui();
 
+	bool update(float interval_time) override;
+
 	~GamingGui();
+
+private:
+	Ogre::TextAreaOverlayElement *ogre_text_area;
 };
 
 #endif

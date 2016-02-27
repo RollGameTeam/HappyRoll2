@@ -16,7 +16,7 @@ void BaseScene::attach_display()
 	ogre_viewport->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 	this->getCamera()->setAspectRatio(float(ogre_viewport->getActualWidth()) / float(ogre_viewport->getActualHeight()));
 
-	//ogre_root->addFrameListener(this);
+	ogre_root->addFrameListener(this);
 	ogre_scene_manager->addRenderQueueListener(ogre_overlay_system);
 
 	gui->show();
@@ -38,5 +38,5 @@ BaseScene::~BaseScene()
 
 bool BaseScene::frameStarted(const Ogre::FrameEvent &evt)
 {
-	return update(evt.timeSinceLastFrame);
+	return gui->update(evt.timeSinceLastFrame) && this->update(evt.timeSinceLastFrame);
 }
